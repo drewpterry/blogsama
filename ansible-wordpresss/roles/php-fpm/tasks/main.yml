@@ -1,0 +1,46 @@
+---
+- name: Install php-fpm
+  apt: name={{item}} state=latest
+  with_items:
+    - php5-fpm
+    - php5-mysql
+    - php5-dev
+    - php-pear
+    - php5-curl
+    - imagemagick
+    - php5-imagick
+    - php5-gd
+    - php5-xmlrpc
+  notify: restart php5-fpm
+
+- name: Enable php5 mcrypt module
+  shell: php5enmod mcrypt
+  args:
+    creates: /etc/php5/cli/conf.d/20-mcrypt.ini
+  notify: restart php5-fpm
+
+- name: Install xdebug (disabled)
+  shell: pecl install xdebug
+  ignore_errors: yes
+
+- name: Disable default pool
+  command: mv /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/www.disabled creates=/etc/php5/fpm/pool.d/www.disabled
+  notify: restart php5-fpm
+
+- name: Copy php-fpm configuration
+  template: src=wordpress.conf dest=/etc/php5/fpm/pool.d
+  notify: restart php5-fpm
+
+# Configure and secure php.ini
+
+- name: php.ini - Change max upload size to 15M
+  replace: dest=/etc/php5/fpm/php.ini regexp='^upload_max_filesize = .*$' replace='upload_max_filesize = 15M'
+  notify: restart php5-fpm
+
+- name: php.ini - Change memory limit to 256M
+  replace: dest=/etc/php5/fpm/php.ini regexp='^memory_limit = .*$' replace='memory_limit = 256M'
+  notify: restart php5-fpm
+
+- name: php.init - Ensure php5-fpm cgi.fix_pathinfo=0
+  lineinfile: dest=/etc/php5/fpm/php.ini regexp='^(.*)cgi.fix_pathinfo=' line=cgi.fix_pathinfo=0
+  notify: restart php5-fpm

@@ -1,0 +1,36 @@
+---
+production_env: true
+wp_version: 4.4
+
+wp_db_name: blogsama 
+wp_db_user: blogsama 
+wp_db_password: 3bI6!48925J-5t6DY$41of76Q 
+project_path: /var/www/html/blogsama/
+mysql_port: 3306
+
+git_repo:
+setup_git_repo: yes
+git_branch: master
+
+server_hostname: replacethisname.com 
+dev_server_hostname: dev.blogkanji.local
+remote_user: root
+admin_email: email@email.com
+
+awscli_user: ubuntu
+awscli_group: ubuntu
+awscli_bucket: backups
+
+timezone: America/New_York
+
+newrelic_loglevel: info
+newrelic_logfile: /var/log/newrelic/nrsysmond.log
+newrelic_proxy: False
+newrelic_ssl: "false"
+newrelic_ssl_ca_bundle: False
+newrelic_ssl_ca_path: False
+newrelic_pidfile: /var/run/newrelic/nrsysmond.pid
+newrelic_collector_host: collector.newrelic.com
+newrelic_timeout: 30
+newrelic_license_key: XXXXXXXXXXXXX
+newrelic_appname: example

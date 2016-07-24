@@ -1,0 +1,42 @@
+---
+
+#- name: Install utilities
+  #apt: name={{item}} state=latest
+  #ignore_errors: yes
+  #with_items:
+    #- vim
+    #- git
+    #- subversion
+    #- unzip
+    #- python-pip
+    #- python-dev
+    #- build-essential
+
+- name: Install base packages
+  apt: name={{ item }} update_cache=yes force=yes state=installed
+  with_items:
+    - build-essential
+    - acl
+    - ntp
+    - htop
+    - git
+    - libpq-dev
+    - libffi-dev 
+    - libxml2-dev 
+    - libxslt1-dev 
+    - python-dev
+    - python-pip
+    - python-pycurl
+    - supervisor
+    - subversion 
+    - unzip 
+
+- name: Set timezone variables
+  copy: content="{{ timezone }}"
+        dest=/etc/timezone
+        owner=root
+        group=root
+        mode=0644
+        backup=yes
+  notify:
+    - update timezone

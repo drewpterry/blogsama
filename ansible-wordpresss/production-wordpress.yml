@@ -1,0 +1,23 @@
+---
+- name: Install WordPress, MySQL, Nginx, and PHP-FPM
+  hosts: all
+  become: yes
+  become_user: root
+  remote_user: vagrant 
+  vars_files:
+    #- env_vars/base.yml
+    - env_vars/production.yml
+  #sudo: yes
+
+  roles:
+    - common
+    - mariadb
+    - nginx
+    - postfix
+    - php-fpm
+    - memcached
+    - wordpress
+    - webgrind
+    - backup
+    - letsencrypt
+    - sftp
