@@ -8,12 +8,12 @@ wp_db_password: 3bI6!48925J-5t6DY$41of76Q
 project_path: /var/www/html/blogsama/
 mysql_port: 3306
 
-git_repo:
+git_repo: https://github.com/drewpterry/blogsama.git
 setup_git_repo: yes
 git_branch: master
 
-server_hostname: replacethisname.com 
-dev_server_hostname: dev.blogkanji.local
+server_hostname: offbeatjapan.com 
+dev_server_hostname: dev.offbeatjapan.local
 remote_user: root
 admin_email: email@email.com
 
