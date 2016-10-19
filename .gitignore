@@ -12,6 +12,7 @@ wp-content/plugins/hello.php
 .DS_Store
 
 .vagrant*
+vault_pass.txt
 
 *.retry
 
