@@ -13,6 +13,8 @@ wp-content/plugins/hello.php
 
 .vagrant*
 
+*.retry
+
 /.htaccess
 /license.txt
 /readme.html

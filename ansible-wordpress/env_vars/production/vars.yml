@@ -1,0 +1,37 @@
+---
+- include_vars: vault.yml
+production_env: true
+wp_version: 4.4
+
+wp_db_name: {{ vault_wp_db_name }} 
+wp_db_user: {{ vault_wp_db_user }}
+wp_db_password: {{ vault_wp_db_password }} 
+project_path: /var/www/html/blogsama/
+mysql_port: 3306
+
+git_repo: https://github.com/drewpterry/blogsama.git
+setup_git_repo: yes
+git_branch: master
+
+server_hostname: offbeatjapan.com 
+dev_server_hostname: dev.offbeatjapan.local
+remote_user: root
+admin_email: email@email.com
+
+awscli_user: ubuntu
+awscli_group: ubuntu
+awscli_bucket: backups
+
+timezone: America/New_York
+
+#newrelic_loglevel: info
+#newrelic_logfile: /var/log/newrelic/nrsysmond.log
+#newrelic_proxy: False
+#newrelic_ssl: "false"
+#newrelic_ssl_ca_bundle: False
+#newrelic_ssl_ca_path: False
+#newrelic_pidfile: /var/run/newrelic/nrsysmond.pid
+#newrelic_collector_host: collector.newrelic.com
+#newrelic_timeout: 30
+#newrelic_license_key: XXXXXXXXXXXXX
+#newrelic_appname: example
