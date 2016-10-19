@@ -11,6 +11,8 @@ wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 .DS_Store
 
+.vagrant*
+
 /.htaccess
 /license.txt
 /readme.html
