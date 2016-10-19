@@ -5,8 +5,8 @@
   become_user: root
   remote_user: vagrant 
   vars_files:
-    #- env_vars/base.yml
-    - env_vars/local.yml
+    - env_vars/local/vars.yml
+    - env_vars/local/vault.yml
   #sudo: yes
 
   roles:
