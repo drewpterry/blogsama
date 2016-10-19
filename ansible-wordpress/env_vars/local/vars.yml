@@ -1,10 +1,11 @@
 ---
+#- include_vars: vault.yml
 production_env: false
 wp_version: 4.4
 
-wp_db_name: wordpress
-wp_db_user: wordpress
-wp_db_password: secret
+#wp_db_name: "{{ vault_wp_db_name }}"
+#wp_db_user: "{{ vault_wp_db_user }}"
+#wp_db_password: "{{ vault_wp_db_password }}"
 project_path: /syncfolder/blogsama/blogsama/
 
 mysql_port: 3306

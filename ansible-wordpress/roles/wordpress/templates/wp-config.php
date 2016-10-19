@@ -15,11 +15,11 @@
  */
 
 /** The name of the database for WordPress */
-define('DB_NAME', '{{ wp_db_name }}');
+define('DB_NAME', '{{ vault_wp_db_name }}');
 /** MySQL database username */
-define('DB_USER', '{{ wp_db_user }}');
+define('DB_USER', '{{ vault_wp_db_user }}');
 /** MySQL database password */
-define('DB_PASSWORD', '{{ wp_db_password }}');
+define('DB_PASSWORD', '{{ vault_wp_db_password }}');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
