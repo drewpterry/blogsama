@@ -2,13 +2,13 @@
 - name: Creates directory for web files
   file: path=/var/www/html state=directory
 
-- name: Download WordPress
-  get_url: url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest=/var/www/html/wordpress.tar.gz force=yes
-  when: not production_env
+#- name: Download WordPress
+  #get_url: url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest=/var/www/html/wordpress.tar.gz force=yes
+  #when: not production_env
 
-- name: Extract archive
-  unarchive: src=/var/www/html/wordpress.tar.gz dest=/var/www/html/ copy=no creates=/var/www/html/wordpress
-  when: not production_env
+#- name: Extract archive
+  #unarchive: src=/var/www/html/wordpress.tar.gz dest=/var/www/html/ copy=no creates=/var/www/html/wordpress
+  #when: not production_env
 
 - name: Setup the Git repo
   git: repo={{ git_repo }}
@@ -17,7 +17,7 @@
        accept_hostkey=yes
        force=yes
   #when: setup_git_repo is defined and setup_git_repo
-  when: production_env
+  #when: production_env
   tags: git
 
 - name: Add group "wordpress"
