@@ -6,9 +6,13 @@ wp_version: 4.4
 #wp_db_name: "{{ vault_wp_db_name }}"
 #wp_db_user: "{{ vault_wp_db_user }}"
 #wp_db_password: "{{ vault_wp_db_password }}"
-project_path: /syncfolder/blogsama/blogsama/
+project_path: /var/www/html/blogsama/blogsama
 
 mysql_port: 3306
+
+git_repo: https://github.com/drewpterry/blogsama.git
+setup_git_repo: yes
+git_branch: master
 
 server_hostname: replacethisname.com 
 dev_server_hostname: dev.blogkanji.local

@@ -18,6 +18,6 @@
     - memcached
     - wordpress
     - webgrind
-    - backup
+    #- backup
     - letsencrypt
     - sftp
