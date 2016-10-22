@@ -6,7 +6,8 @@ wp_version: 4.4
 #wp_db_name: "{{ vault_wp_db_name }}"
 #wp_db_user: "{{ vault_wp_db_user }}"
 #wp_db_password: "{{ vault_wp_db_password }}"
-project_path: /var/www/html/blogsama/blogsama
+project_path: /var/www/html
+project_path_index: "{{ project_path }}/blogsama"
 
 mysql_port: 3306
 

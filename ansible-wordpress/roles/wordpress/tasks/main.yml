@@ -24,7 +24,7 @@
   group: name=wordpress
 
 - name: Add user "wordpress"
-  user: name=wordpress group=wordpress home=/var/www/html/wordpress/
+  user: name=wordpress group=wordpress home={{ project_path_index }}
 
 - name: Fetch random salts for WordPress config
   local_action: command curl https://api.wordpress.org/secret-key/1.1/salt/
@@ -38,16 +38,16 @@
   mysql_user: name={{ vault_wp_db_user }} password={{ vault_wp_db_password }} priv={{ vault_wp_db_name }}.*:ALL host='localhost' state=present
 
 - name: Copy WordPress config file
-  template: src=wp-config.php dest=/var/www/html/wordpress/ force=yes
+  template: src=wp-config.php dest={{ project_path_index }}/ force=yes
 
 - name: Copy WordPress memcached drop in
-  template: src=object-cache.php dest=/var/www/html/wordpress/wp-content
+  template: src=object-cache.php dest={{ project_path_index }}/wp-content
 
 - name: Copy Batcache drop in
-  template: src=advanced-cache.php dest=/var/www/html/wordpress/wp-content
+  template: src=advanced-cache.php dest={{ project_path_index }}/wp-content
 
 - name: Change ownership of WordPress installation
-  file: path=/var/www/html/wordpress/ owner=wordpress group=wordpress state=directory recurse=yes mode=0775
+  file: path={{ project_path_index }}/ owner=wordpress group=wordpress state=directory recurse=yes mode=0775
 
 - name: Download WP-CLI
   get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/tmp/wp-cli.phar
