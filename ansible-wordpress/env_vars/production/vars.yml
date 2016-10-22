@@ -1,5 +1,4 @@
 ---
-- include_vars: vault.yml
 production_env: true
 wp_version: 4.4
 
